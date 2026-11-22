@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Kelola materi promosi dan bagikan halaman website aset digital Anda.">
+  <title>AutoWeb Traffic Booster</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">A</span><div><strong>AutoWeb</strong><small>TRAFFIC BOOSTER</small></div></div>
+    <span class="local-tag">Versi pribadi • Data tersimpan di browser</span>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div><p class="eyebrow">PROMOSI WEBSITE ASET DIGITAL</p><h1>Kelola promosi website<br><span>dari satu tempat.</span></h1>
+      <p class="sub">Siapkan caption, simpan kampanye, dan bagikan halaman gambar, video, atau musik ke platform pilihan Anda.</p></div>
+      <div class="intro-icon">↗</div>
+    </section>
+
+    <section class="stats">
+      <article><span>Website tersimpan</span><b id="statSites">0</b></article>
+      <article><span>Kampanye tersimpan</span><b id="statCampaigns">0</b></article>
+      <article><span>Halaman dibagikan*</span><b id="statShares">0</b></article>
+    </section>
+    <p class="note">*Menghitung tombol bagikan yang dibuka dari tool ini, bukan jumlah posting berhasil atau jumlah pengunjung website.</p>
+
+    <nav class="tabs" aria-label="Menu utama">
+      <button class="tab active" data-tab="promote">Buat promosi</button>
+      <button class="tab" data-tab="sites">Website saya</button>
+      <button class="tab" data-tab="campaigns">Kampanye</button>
+      <button class="tab" data-tab="seo">Ide SEO</button>
+    </nav>
+
+    <section class="panel active" id="panel-promote">
+      <div class="section-head"><div><p class="eyebrow">MATERI PROMOSI</p><h2>Buat posting baru</h2></div><span class="step">01 / 04</span></div>
+      <div class="grid two">
+        <label>Website<select id="siteSelect"><option value="">Pilih website terlebih dahulu</option></select></label>
+        <label>Jenis aset<select id="assetType"><option>Gambar</option><option>Video</option><option>Musik</option><option>Campuran</option></select></label>
+      </div>
+      <label>Judul halaman / aset<input id="assetTitle" placeholder="Contoh: Koleksi foto alam gratis HD"></label>
+      <label>Link halaman yang ingin dipromosikan<input id="pageUrl" type="url" placeholder="https://websiteanda.com/halaman-aset"></label>
+      <label>Deskripsi singkat<textarea id="assetDesc" rows="3" placeholder="Jelaskan isi halaman dan manfaatnya bagi pengunjung..."></textarea></label>
+      <label>Kata kunci / hashtag<input id="hashtags" placeholder="foto gratis, wallpaper, nature, free images"></label>
+      <div class="actions"><button class="primary" id="generateBtn">Buat caption</button><button class="secondary" id="saveBtn">Simpan kampanye</button></div>
+      <label>Caption promosi<textarea id="caption" rows="6" placeholder="Caption akan muncul di sini. Anda juga bisa mengeditnya."></textarea></label>
+      <div class="share-title"><div><h3>Bagikan ke platform</h3><p>Pilih platform untuk membuka halaman berbagi.</p></div></div>
+      <div class="platforms">
+        <button data-platform="whatsapp">WhatsApp</button><button data-platform="facebook">Facebook</button>
+        <button data-platform="telegram">Telegram</button><button data-platform="pinterest">Pinterest</button>
+        <button data-platform="x">X</button><button data-platform="reddit">Reddit</button>
+        <button data-platform="linkedin">LinkedIn</button><button data-platform="email">Email</button>
+      </div>
+      <p class="smallprint">Tool ini membuka halaman berbagi. Anda tetap perlu meninjau dan menekan tombol kirim/posting di platform tujuan. Instagram dan grup/komunitas tidak dapat diposting otomatis oleh website biasa.</p>
+      <div id="toast" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel" id="panel-sites">
+      <div class="section-head"><div><p class="eyebrow">DAFTAR WEBSITE</p><h2>Website saya</h2></div></div>
+      <div class="grid two">
+        <label>Nama website<input id="siteName" placeholder="Contoh: Gudang Aset Gratis"></label>
+        <label>Alamat website<input id="siteUrl" type="url" placeholder="https://contoh.com"></label>
+      </div>
+      <label>Jenis website<select id="siteKind"><option>Download gambar</option><option>Download video</option><option>Download musik</option><option>Gambar, video, dan musik</option><option>Lainnya</option></select></label>
+      <button class="primary" id="addSiteBtn">+ Tambahkan website</button>
+      <div id="siteList" class="item-list"></div>
+    </section>
+
+    <section class="panel" id="panel-campaigns">
+      <div class="section-head"><div><p class="eyebrow">RIWAYAT PROMOSI</p><h2>Kampanye tersimpan</h2></div><button class="text-button" id="clearCampaigns">Hapus semua</button></div>
+      <div id="campaignList" class="item-list"></div>
+    </section>
+
+    <section class="panel" id="panel-seo">
+      <div class="section-head"><div><p class="eyebrow">OPTIMASI PENCARIAN</p><h2>Ide SEO sederhana</h2></div></div>
+      <p class="sub">Masukkan topik aset Anda untuk mendapatkan contoh judul, deskripsi, dan kata kunci yang bisa diedit.</p>
+      <label>Topik / jenis aset<input id="seoTopic" placeholder="Contoh: foto bunga, video alam, musik santai"></label>
+      <button class="primary" id="seoBtn">Buat ide SEO</button>
+      <div id="seoResult" class="seo-result"></div>
+      <p class="smallprint">Ide SEO bukan jaminan masuk halaman pertama Google. Buat halaman unik, bermanfaat, cepat dibuka, dan pastikan Anda memiliki hak untuk membagikan asetnya.</p>
+    </section>
+
+    <footer><strong>AutoWeb Traffic Booster</strong><span>Promosi yang wajar • Konten berkualitas • Pengunjung nyata</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
